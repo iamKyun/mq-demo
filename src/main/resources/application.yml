@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: mq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+    listener:
+      simple: # 简单模式
+        acknowledge-mode: manual # 消费手动确认
+        retry:
+          enabled: true
+        concurrency: 5
+        max-concurrency: 10
+    publisher-returns: true
+    publisher-confirm-type: correlated
+gzcss:
+  media:
+    queue-name: 'video-process'
+    video-codec: 'libx264'
+    audio-codec: 'aac'
+
